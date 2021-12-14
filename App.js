@@ -68,16 +68,18 @@ const App = () => {
   return (
     <SafeAreaView>
       <ScrollView>
-        <View style={styles.container}>
+        <View style={styles.loginContainer}>
           <TouchableOpacity onPress={onPressLogin}>
-            <View style={styles.button}>
-              <Text style={styles.text}>로그인 버튼</Text>
+            <View style={styles.loginButton}>
+              <Text style={styles.loginText}>로그인 버튼</Text>
             </View>
           </TouchableOpacity>
         </View>
         {loggedData ? (
-          <View style={styles.data}>
-            <Text>{JSON.stringify(loggedData, null, 4)}</Text>
+          <View style={styles.jwtView}>
+            <Text style={styles.jwtText}>
+              {JSON.stringify(loggedData, null, 4)}
+            </Text>
           </View>
         ) : undefined}
       </ScrollView>
@@ -86,24 +88,27 @@ const App = () => {
 };
 
 const styles = StyleSheet.create({
-  container: {
+  loginContainer: {
     padding: 24,
   },
-  button: {
+  loginButton: {
     padding: 12,
     backgroundColor: '#1976d2',
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: 8,
   },
-  text: {
+  loginText: {
     color: '#fff',
     fontSize: 14,
   },
-  data: {
+  jwtView: {
     borderTopWidth: 1,
     borderTopColor: '#eee',
     padding: 24,
+  },
+  jwtText: {
+    color: '#000',
   },
 });
 
